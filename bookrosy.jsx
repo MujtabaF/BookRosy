@@ -402,16 +402,16 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif}
 .ld-busy{background:rgba(255,101,52,.4)}
 .ld-class{background:#3d2f4a;box-shadow:inset 0 0 0 1px rgba(232,82,122,.35)}
 
-.avail-scroll{overflow-x:auto}
-.avail-grid{display:grid;grid-template-columns:44px repeat(7,1fr);min-width:560px;border-radius:14px;overflow:hidden;border:1.5px solid var(--border)}
+.avail-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1.5px solid var(--border);background:#fff}
+.avail-grid{display:grid;grid-template-columns:52px repeat(7,1fr);min-width:560px}
 .a-head{background:var(--ink);color:#fff;text-align:center;padding:.65rem .2rem;cursor:pointer;user-select:none;transition:background .15s}
 .a-head:hover:not(.a-time-h){background:#3D3660}
 .a-head.today{background:var(--tang)!important}
 .a-head.sel{background:var(--rose)!important;outline:2px solid var(--rose-s);outline-offset:-2px}
 .a-head .dn{font-family:'DM Sans',sans-serif;font-size:.63rem;text-transform:uppercase;letter-spacing:.07em;opacity:.6}
 .a-head .dd{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400}
-.a-time-h{cursor:default}
-.a-time-lbl{height:30px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;font-size:.59rem;color:var(--light);border-right:1px solid var(--border)}
+.a-time-h{cursor:default;position:sticky;left:0;z-index:5;background:var(--ink);box-shadow:6px 0 14px rgba(33,28,53,.18)}
+.a-time-lbl{height:30px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.62rem;font-weight:500;color:var(--mid);border-right:1px solid var(--border);position:sticky;left:0;z-index:3;background:#fff;box-shadow:4px 0 12px rgba(33,28,53,.08)}
 .a-slot{height:30px;border-bottom:1px solid rgba(232,82,122,.04);border-right:1px solid rgba(232,82,122,.04);cursor:pointer;transition:background .1s}
 .a-slot.free{background:rgba(77,144,112,.07)}
 .a-slot.free:hover{background:rgba(77,144,112,.22);outline:1px solid rgba(77,144,112,.4)}
@@ -877,7 +877,7 @@ function ReviewsSection() {
               aria-expanded={showAll}
               aria-controls="reviews-grid"
             >
-              {showAll ? "Show less" : `+ ${extraCount} more`}
+              {showAll ? "Show less" : "Show more"}
             </button>
           </div>
         ) : null}
