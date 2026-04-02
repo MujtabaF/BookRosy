@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+# Root copies only — Vite serves images from public/
+/*.jpeg
+/*.jpg
+/*.JPG
+/*.png
+/*.HEIC
+*.log
+.env
+.env.*
+!.env.example
