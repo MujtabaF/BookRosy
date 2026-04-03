@@ -12,9 +12,9 @@ const EJS_TPL_TO_FRIEND = "template_j4udst5";
 
 // 🌸 Marquee strip: real Rosy shots only; each path unique — no duplicates.
 //    Do NOT reuse experience-card images: /RosyOrangeJuice, /RosyWithFood, /RosyMujiStore, /RosyLibraryPuffer.
-//    Intentionally omit /RosyWithFlower.jpeg (Rosy + “The one and only 🌺” overlay) — that file can live in public/ for other uses, but never add it to PORTRAIT_PHOTOS.
-//    Files live in `public/` (spaces in filenames are OK — publicAsset encodes them).
+//    Files live in `public/` (spaces in filenames are OK — publicAsset encodes them). First item is also used for hero thumbnails (PORTRAIT_PHOTOS[0]).
 const PORTRAIT_PHOTOS = [
+  "/RosyWithFlower.jpeg",
   "/RosyCoffee.jpeg",
   "/Rosy Biercraft.jpeg",
   "/Rosy Aesthetic.jpeg",
