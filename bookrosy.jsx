@@ -27,25 +27,25 @@ const PORTRAIT_PHOTOS = [
 const EXPERIENCES = [
   {
     emoji: "☕️🍵", title: "Coffee and Match Runs",
-    desc: "Lazy mornings and overly long chats about nothing and everything. She always knows the best spot.",
+    desc: "If you wanna catch up or just try coffee from a new place, she's your girl.",
     img: "/RosyOrangeJuice.jpeg",
     tag: "Essential", tagBg: "#FFF4EE", tagCol: "#FF6534",
   },
   {
     emoji: "😋🍽️", title: "Food Adventures",
-    desc: "Spontaneous peeling sessions, snack sharing, and the kind of comfort that needs no words.",
+    desc: "Be it snacking on tangerines, having sushi anywhere or frozen yogurt, she's your girl.",
     img: "/RosyWithFood.jpeg",
     tag: "A must", tagBg: "#FEF0F5", tagCol: "#E8527A",
   },
   {
     emoji: "🛍️💳", title: "Shopping Sprees",
-    desc: "She takes matcha very seriously. Expect strong opinions on oat milk ratios and perfect vibes.",
+    desc: "If your buying new clothes or just window shopping and need the best opinions, she's your girl.",
     img: "/RosyMujiStore.jpeg",
     tag: "Mandatory", tagBg: "#EDFAF3", tagCol: "#4D9070",
   },
   {
     emoji: "📚💻", title: "Study Sessions",
-    desc: "Bring your laptop and your chaos. She'll bring snacks and somehow still finish her essay first.",
+    desc: "If you want a yap partner while studying or just someone with good music choice, she's your girl.",
     img: "/RosyLibraryPuffer.jpeg",
     tag: "Chaotic good", tagBg: "#F5F0FE", tagCol: "#7C3AED",
   },
@@ -55,9 +55,9 @@ const EXPERIENCES = [
 const REVIEWS_PREVIEW_COUNT = 3;
 
 const HANGOUT_REVIEWS = [
-  { quote: "She remembered my oat-milk order from three months ago. I don’t know if that’s love or a superpower.", author: "Priya", tag: "Coffee dates" },
-  { quote: "I showed up stressed about an exam and left crying from laughter. Ten out of ten would vent again.", author: "Jordan", tag: "Study chaos" },
-  { quote: "We walked into Muji for one thing and left with a philosophical debate and matching pens.", author: "Sam", tag: "Retail therapy" },
+  { quote: "I have to thank my sister for always being the perfect mix of annoying and amazing. She’s a constant presence in my life, and I truly appreciate her for just being herself. Keep doing what you’re doing, because you’re doing great! 🫶.", author: "Kelsey", tag: "Literal Sister" },
+  { quote: "Her name is Rosy. Her hair was red and that is her personality.", author: "Bhav", tag: "Sincere Amigo" },
+  { quote: "We walked into Muji for one thing and left with a philosophical debate and matching pens.", author: "Hannah", tag: "Gal" },
   { quote: "She peeled a mandarin like it was a ceremony and made me feel like the main character of lunch.", author: "Alex", tag: "Snack diplomacy" },
   { quote: "Zero judgment when I ordered dessert first. She actually encouraged it.", author: "Riley", tag: "Food adventures" },
   { quote: "The kind of person who texts 'outside' and you’re already smiling before you open the door.", author: "Casey", tag: "Spontaneous hangs" },
