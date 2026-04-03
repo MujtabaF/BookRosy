@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 // ════════════════════════════════════════════════════
 //  ⚙️  CONFIG — fill these in
@@ -57,7 +57,7 @@ const REVIEWS_PREVIEW_COUNT = 3;
 const HANGOUT_REVIEWS = [
   { quote: "I have to thank my sister for always being the perfect mix of annoying and amazing. She’s a constant presence in my life, and I truly appreciate her for just being herself. Keep doing what you’re doing, because you’re doing great! 🫶.", author: "Kelsey", tag: "Literal Sister" },
   { quote: "Her name is Rosy. Her hair was red and that is her personality.", author: "Bhav", tag: "Sincere Amigo" },
-  { quote: "We walked into Muji for one thing and left with a philosophical debate and matching pens.", author: "Hannah", tag: "Gal" },
+  { quote: "Rosy, you’ve always made me feel at ease, even when I have complaints. You’re a beautiful person with so much heart and don’t change for anyone. Keep being yourself, because I love you just the way you are.", author: "Hannah", tag: "Gal" },
   { quote: "She peeled a mandarin like it was a ceremony and made me feel like the main character of lunch.", author: "Alex", tag: "Snack diplomacy" },
   { quote: "Zero judgment when I ordered dessert first. She actually encouraged it.", author: "Riley", tag: "Food adventures" },
   { quote: "The kind of person who texts 'outside' and you’re already smiling before you open the door.", author: "Casey", tag: "Spontaneous hangs" },
@@ -446,6 +446,11 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif}
 .review-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:rgba(232,82,122,.22)}
 .review-card::before{content:'“';font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1;color:var(--rose-s);opacity:.45;display:block;margin-bottom:-.35rem}
 .review-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.04rem;color:var(--ink);line-height:1.58;margin:0 0 1.05rem}
+.review-text--clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.review-text--with-toggle{margin-bottom:.4rem}
+.review-readmore{display:block;background:none;border:none;padding:0;margin:0 0 .95rem;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--rose);cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent;align-self:flex-start}
+.review-readmore:hover,.review-readmore:focus-visible{color:#C93A66;text-decoration:underline}
+.review-readmore:focus-visible{outline:2px solid var(--rose);outline-offset:2px;border-radius:2px}
 .review-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem}
 .review-author{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:var(--rose)}
 .review-tag{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mid);background:var(--bg2);padding:.22rem .58rem;border-radius:7px;border:1px solid var(--border);font-family:'DM Sans',sans-serif}
@@ -841,6 +846,50 @@ function ExpSection() {
 // ════════════════════════════════════════════════════
 //  HANGOUT REVIEWS
 // ════════════════════════════════════════════════════
+function HangoutReviewCard({ r }) {
+  const [expanded, setExpanded] = useState(false);
+  const [showToggle, setShowToggle] = useState(false);
+  const textRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const el = textRef.current;
+    if (!el) return;
+    const measure = () => {
+      if (expanded) return;
+      setShowToggle(el.scrollHeight > el.clientHeight + 1);
+    };
+    measure();
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(measure) : null;
+    ro?.observe(el);
+    return () => ro?.disconnect();
+  }, [r.quote, expanded]);
+
+  return (
+    <blockquote className="review-card">
+      <p
+        ref={textRef}
+        className={`review-text${!expanded ? " review-text--clamped" : ""}${showToggle ? " review-text--with-toggle" : ""}`}
+      >
+        {r.quote}
+      </p>
+      {showToggle ? (
+        <button
+          type="button"
+          className="review-readmore"
+          onClick={() => setExpanded(e => !e)}
+          aria-expanded={expanded}
+        >
+          {expanded ? "Read less" : "Read more"}
+        </button>
+      ) : null}
+      <footer className="review-foot">
+        <span className="review-author">{r.author}</span>
+        {r.tag ? <span className="review-tag">{r.tag}</span> : null}
+      </footer>
+    </blockquote>
+  );
+}
+
 function ReviewsSection() {
   const [showAll, setShowAll] = useState(false);
   const extraCount = HANGOUT_REVIEWS.length - REVIEWS_PREVIEW_COUNT;
@@ -859,13 +908,7 @@ function ReviewsSection() {
         </div>
         <div className="reviews-grid" id="reviews-grid">
           {visible.map((r, i) => (
-            <blockquote key={`${r.author}-${i}`} className="review-card">
-              <p className="review-text">{r.quote}</p>
-              <footer className="review-foot">
-                <span className="review-author">{r.author}</span>
-                {r.tag ? <span className="review-tag">{r.tag}</span> : null}
-              </footer>
-            </blockquote>
+            <HangoutReviewCard key={`${r.author}-${i}`} r={r} />
           ))}
         </div>
         {extraCount > 0 ? (
