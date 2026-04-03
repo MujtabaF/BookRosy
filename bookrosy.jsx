@@ -55,16 +55,15 @@ const EXPERIENCES = [
 const REVIEWS_PREVIEW_COUNT = 3;
 
 const HANGOUT_REVIEWS = [
-  { quote: "I have to thank my sister for always being the perfect mix of annoying and amazing. She’s a constant presence in my life, and I truly appreciate her for just being herself. Keep doing what you’re doing, because you’re doing great! 🫶.", author: "Kelsey", tag: "Literal Sister" },
-  { quote: "Her name is Rosy. Her hair was red and that is her personality.", author: "Bhav", tag: "Sincere Amigo" },
-  { quote: "Rosy, you’ve always made me feel at ease, even when I have complaints. You’re a beautiful person with so much heart and don’t change for anyone. Keep being yourself, because I love you just the way you are.", author: "Hannah", tag: "Gal" },
-  { quote: "She peeled a mandarin like it was a ceremony and made me feel like the main character of lunch.", author: "Alex", tag: "Snack diplomacy" },
-  { quote: "Zero judgment when I ordered dessert first. She actually encouraged it.", author: "Riley", tag: "Food adventures" },
-  { quote: "The kind of person who texts 'outside' and you’re already smiling before you open the door.", author: "Casey", tag: "Spontaneous hangs" },
-  { quote: "She’ll listen to your whole spiral, then say one sentence and you feel fixed. Witchcraft.", author: "Dev", tag: "Late-night talks" },
-  { quote: "We missed the bus and somehow it became the best part of the day. That’s Rosy math.", author: "Morgan", tag: "City wandering" },
-  { quote: "Brings snacks without being asked. If that’s not peak friendship I don’t know what is.", author: "Taylor", tag: "Care package energy" },
-  { quote: "Leaves you warmer than when you arrived — like human sunshine with better playlists.", author: "Jamie", tag: "Just… Rosy" },
+  { quote: "I have to thank my sister for always being the perfect mix of annoying and amazing. She’s a constant presence in my life, and I truly appreciate her for just being herself. Keep doing what you’re doing, because you’re doing great! 🫶.", author: "Kelsey" },
+  { quote: "'Hello everyone my name is Rosy my hair is red and that is my personality.'", author: "Bhav" },
+  { quote: "Rosy, you’ve always made me feel at ease, even when I have complaints. You’re a beautiful person with so much heart and don’t change for anyone. Keep being yourself, because I love you just the way you are.", author: "Hannah" },
+  { quote: "Time with rosy goes by soo fast. When I’m with her, I forget all my responsibilities because she manages to make my day feel lighter. I always go out of my way to try to meet her, she has a way of making me feel so recharged just by seeing her, even if it’s 5 minutes. I don’t know what I did to deserve someone as caring and kind as her. Love you rosy 💗", author: "Daniella" },
+  { quote: "When I’m with you I feel peaceful and calm. Your presence makes me feel lighter. I love you dear.", author: "Mimi" },
+  { quote: "Rosy is such a sunshine that warms everyone up. Always optimistic and barely in a bad mood", author: "Shanice" },
+  { quote: "Rosy’s the sweetest girl I have ever met. Started as my CTP and now shes my fav QT. Te quiero mucho estrella", author: "Ivett" },
+  { quote: "From all our conversations, I think you know how important you are to me. I just wanted to say that I truly value our friendship, and I’m always here for you, just like you’ve always been there for me", author: "Sarfraz" },
+  { quote: "I probably open up to you the most because you always create such a warm environment, and I really appreciate that. I love every moment we spend together cus it feels so natural, whether we're at the library or taking long walks. Thanks for always listening to me, no matter how dumb I sound,", author: "Muji" },
 ];
 
 if (import.meta.env.DEV) {
@@ -454,7 +453,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif}
 .review-readmore:focus-visible{outline:2px solid var(--rose);outline-offset:2px;border-radius:2px}
 .review-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem;margin-top:auto;padding-top:.85rem;flex-shrink:0}
 .review-author{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:var(--rose)}
-.review-tag{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mid);background:var(--bg2);padding:.22rem .58rem;border-radius:7px;border:1px solid var(--border);font-family:'DM Sans',sans-serif}
 .reviews-more-wrap{display:flex;justify-content:center;margin-top:1.5rem}
 .reviews-more-btn{background:none;border:none;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--rose);cursor:pointer;padding:.65rem 1.15rem;border-radius:999px;transition:background .18s,color .18s;-webkit-tap-highlight-color:transparent}
 .reviews-more-btn:hover,.reviews-more-btn:focus-visible{background:rgba(232,82,122,.1);color:#C93A66}
@@ -887,7 +885,6 @@ function HangoutReviewCard({ r }) {
       </div>
       <footer className="review-foot">
         <span className="review-author">{r.author}</span>
-        {r.tag ? <span className="review-tag">{r.tag}</span> : null}
       </footer>
     </blockquote>
   );
