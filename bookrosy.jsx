@@ -12,9 +12,10 @@ const EJS_TPL_TO_FRIEND = "template_j4udst5";
 
 // 🌸 "The one and only" strip: real Rosy shots only, warm / rosy-toned. Each path must be unique — no duplicates.
 //    Do NOT reuse experience-card images: /RosyOrangeJuice, /RosyWithFood, /RosyMujiStore, /RosyLibraryPuffer.
-//    Files live in `public/` (spaces in filenames are OK — publicAsset encodes them). You have six Rosy-only shots here; add two more paths when you add new JPGs under public/ if you want eight again.
+//    Files live in `public/` (spaces in filenames are OK — publicAsset encodes them).
 const PORTRAIT_PHOTOS = [
-  "/RosyWithFlower.jpeg",
+  "/RosyCoffee.jpeg",
+  "/Rosy Biercraft.jpeg",
   "/Rosy Aesthetic.jpeg",
   "/RosyWearingCap.jpeg",
   "/RosCraveCulture.jpeg",
