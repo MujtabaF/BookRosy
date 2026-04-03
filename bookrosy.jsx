@@ -442,16 +442,17 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif}
 .reviews-grid{display:grid;grid-template-columns:1fr;gap:1.1rem}
 @media(min-width:640px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.15rem}}
 @media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr);gap:1.2rem}}
-.review-card{margin:0;background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:1.35rem 1.4rem 1.25rem;box-shadow:0 6px 28px rgba(232,82,122,.07);transition:transform .22s,box-shadow .22s,border-color .22s}
+.review-card{margin:0;background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:1.35rem 1.4rem 1.25rem;box-shadow:0 6px 28px rgba(232,82,122,.07);transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column;height:100%;min-height:0}
 .review-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:rgba(232,82,122,.22)}
-.review-card::before{content:'“';font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1;color:var(--rose-s);opacity:.45;display:block;margin-bottom:-.35rem}
+.review-card::before{content:'“';font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1;color:var(--rose-s);opacity:.45;display:block;margin-bottom:-.35rem;flex-shrink:0}
+.review-card-main{display:flex;flex-direction:column;align-items:stretch;min-width:0}
 .review-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.04rem;color:var(--ink);line-height:1.58;margin:0 0 1.05rem}
 .review-text--clamped{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .review-text--with-toggle{margin-bottom:.4rem}
 .review-readmore{display:block;background:none;border:none;padding:0;margin:0 0 .95rem;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--rose);cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent;align-self:flex-start}
 .review-readmore:hover,.review-readmore:focus-visible{color:#C93A66;text-decoration:underline}
 .review-readmore:focus-visible{outline:2px solid var(--rose);outline-offset:2px;border-radius:2px}
-.review-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem}
+.review-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem;margin-top:auto;padding-top:.85rem;flex-shrink:0}
 .review-author{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:var(--rose)}
 .review-tag{font-size:.65rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mid);background:var(--bg2);padding:.22rem .58rem;border-radius:7px;border:1px solid var(--border);font-family:'DM Sans',sans-serif}
 .reviews-more-wrap{display:flex;justify-content:center;margin-top:1.5rem}
@@ -866,22 +867,24 @@ function HangoutReviewCard({ r }) {
 
   return (
     <blockquote className="review-card">
-      <p
-        ref={textRef}
-        className={`review-text${!expanded ? " review-text--clamped" : ""}${showToggle ? " review-text--with-toggle" : ""}`}
-      >
-        {r.quote}
-      </p>
-      {showToggle ? (
-        <button
-          type="button"
-          className="review-readmore"
-          onClick={() => setExpanded(e => !e)}
-          aria-expanded={expanded}
+      <div className="review-card-main">
+        <p
+          ref={textRef}
+          className={`review-text${!expanded ? " review-text--clamped" : ""}${showToggle ? " review-text--with-toggle" : ""}`}
         >
-          {expanded ? "Read less" : "Read more"}
-        </button>
-      ) : null}
+          {r.quote}
+        </p>
+        {showToggle ? (
+          <button
+            type="button"
+            className="review-readmore"
+            onClick={() => setExpanded(e => !e)}
+            aria-expanded={expanded}
+          >
+            {expanded ? "Read less" : "Read more"}
+          </button>
+        ) : null}
+      </div>
       <footer className="review-foot">
         <span className="review-author">{r.author}</span>
         {r.tag ? <span className="review-tag">{r.tag}</span> : null}
