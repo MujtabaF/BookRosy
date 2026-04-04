@@ -65,6 +65,8 @@ const HANGOUT_REVIEWS = [
   { quote: "Rosy is such a sunshine that warms everyone up. Always optimistic and barely in a bad mood", author: "Shanice" },
   { quote: "Rosy’s the sweetest girl I have ever met. Started as my CTP and now shes my fav QT. Te quiero mucho estrella", author: "Ivett" },
   { quote: "From all our conversations, I think you know how important you are to me. I just wanted to say that I truly value our friendship, and I’m always here for you, just like you’ve always been there for me", author: "Sarfraz" },
+  { quote: "Hanging out with Rosy is always great, especially when she’s vlogging, her love and energy make it even better!", author: "Krupa"},
+  { quote: "From the very first day of our orientation training at FIC, I still remember how I ended up sitting next to you, and how effortlessly we clicked. It all felt so natural. I really admire how kind and loving you are, and the way you make people feel safe and appreciated. I hope you always stay as happy, loving, and sweet as you are, my beautiful Rosy.", author: "Avneet"}
   { quote: "I probably open up to you the most because you always create such a warm environment, and I really appreciate that. I love every moment we spend together cus it feels so natural, whether we're at the library or taking long walks. Thanks for always listening to me, no matter how dumb I sound,", author: "Muji" },
 ];
 
